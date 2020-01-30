@@ -5,11 +5,15 @@
     <title>Flask Tutorial</title>
   </head>
   <body>
+    {% extends "template.html" %}
+    {% block content %}
+
     <h1> My First Try Using Flask </h1>
     <p> Flask is Fun </p>
     <form method="POST">
       <input name="variable">
       <input type="submit">
     </form>
+    {% endblock %}
   </body>
 </html>
