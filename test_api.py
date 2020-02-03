@@ -4,4 +4,4 @@ def test_placeholder():
     pass
 
 def test_read_tweets():
-    assert read_tweets == "Test"
+    assert read_tweets() == "Test"
