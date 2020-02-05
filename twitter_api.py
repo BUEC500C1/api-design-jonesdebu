@@ -17,17 +17,20 @@ api = tweepy.API(auth)
 
 #get user timeline for tweets to convert
 user = api.get_user('Donovan01060515')
-tweets = api.user_timeline(user.screen_name)
+tweets = api.user_timeline(id="Donovan01060515")
 
 #setup google vision API
 client = vision.ImageAnnotatorClient()
 image = vision.types.Image()
 
-#get media url and print label descriptions
-image.source.image_uri = 'gs://cloud-samples-data/vision/using_curl/shanghai.jpeg'
-response = client.label_detection(image=image)
-for label in response.label_annotations:
-    print(label.description)
+#get media urls and print label descriptions
+for status in tweepy.Cursor(api.user_timeline, id="Donovan01060515").items():
+    if 'media' in status.entities:
+        for images in status.entities['media']:
+            image.source.image_uri = images['media_url']
+            response = client.label_detection(image=image)
+            for label in response.label_annotations:
+                print(label.description)
 
 #added for further testing:
 for tweet in tweets:
