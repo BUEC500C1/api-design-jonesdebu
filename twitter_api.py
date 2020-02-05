@@ -23,8 +23,8 @@ tweets = api.user_timeline(user.screen_name)
 client = vision.ImageAnnotatorClient()
 image = vision.types.Image()
 
-
-image.source.image_uri = 'gs://cloud-samples-data/vision/using_curl/shanghai.jpeg'# images['media_url']
+#get media url and print label descriptions
+image.source.image_uri = 'gs://cloud-samples-data/vision/using_curl/shanghai.jpeg'
 response = client.label_detection(image=image)
 for label in response.label_annotations:
     print(label.description)
@@ -32,3 +32,7 @@ for label in response.label_annotations:
 #added for further testing:
 for tweet in tweets:
     print(tweet.text)
+
+#TODO:
+#   1. Generalize tweepy.OAuthHandler, auth.set_access.token and api.get_user to be arguments that are entered into the function
+#   2. Create a more oherent description of the media recieved from the twitter feed
