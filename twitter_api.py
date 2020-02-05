@@ -7,16 +7,13 @@ from google.cloud import vision
 # function must be called from a different functions
 
 
-#def read_tweets():
+
 #twitter API OAuth 2 AUthentication
 auth = tweepy.OAuthHandler("4IVCCtuSQ3eLb8i2kH70lVawI", "7erpsGo0gNJTPnTEYc73PFkB6iCvJZrK8HIb7vVm45ywKfZ04d")
 auth.set_access_token("1222366331825090560-pTDch0qvoCkSvFVdgUoybz8OMQy5c8", "7b5LVDnfykKS5Xi5YYH4uiPAZNovzG2HnrpLE2OXV0whZ")
 
 api = tweepy.API(auth)
 
-#tweepy.Cursor(api.search, q="hashtag", count=5, include_entities=True)
-
-#public_tweets = api.home_timeline()
 
 #get user timeline for tweets to convert
 user = api.get_user('Donovan01060515')
@@ -32,5 +29,6 @@ response = client.label_detection(image=image)
 for label in response.label_annotations:
     print(label.description)
 
+#added for further testing:
 for tweet in tweets:
     print(tweet.text)
