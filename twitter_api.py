@@ -7,16 +7,13 @@ from google.cloud import vision
 # function must be called from a different functions
 
 
-#def read_tweets():
-#twitter API OAuth 2 AUthentication
+
+#twitter API OAuth 2 Authentication
 auth = tweepy.OAuthHandler("4IVCCtuSQ3eLb8i2kH70lVawI", "7erpsGo0gNJTPnTEYc73PFkB6iCvJZrK8HIb7vVm45ywKfZ04d")
 auth.set_access_token("1222366331825090560-pTDch0qvoCkSvFVdgUoybz8OMQy5c8", "7b5LVDnfykKS5Xi5YYH4uiPAZNovzG2HnrpLE2OXV0whZ")
 
 api = tweepy.API(auth)
 
-#tweepy.Cursor(api.search, q="hashtag", count=5, include_entities=True)
-
-#public_tweets = api.home_timeline()
 
 #get user timeline for tweets to convert
 user = api.get_user('Donovan01060515')
@@ -26,6 +23,7 @@ tweets = api.user_timeline(id="Donovan01060515")
 client = vision.ImageAnnotatorClient()
 image = vision.types.Image()
 
+#get media urls and print label descriptions
 for status in tweepy.Cursor(api.user_timeline, id="Donovan01060515").items():
     if 'media' in status.entities:
         for images in status.entities['media']:
@@ -34,5 +32,10 @@ for status in tweepy.Cursor(api.user_timeline, id="Donovan01060515").items():
             for label in response.label_annotations:
                 print(label.description)
 
+#added for further testing:
 for tweet in tweets:
     print(tweet.text)
+
+#TODO:
+#   1. Generalize tweepy.OAuthHandler, auth.set_access.token and api.get_user to be arguments that are entered into the function
+#   2. Create a more oherent description of the media recieved from the twitter feed

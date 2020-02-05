@@ -3,3 +3,4 @@ google-cloud
 pytest
 flake8
 google-cloud-vision
+virtualenv
