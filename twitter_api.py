@@ -16,6 +16,10 @@ from google.cloud import vision
 # of the user whose timeline you would like to retrieve. The function will print out
 # a lsit of what labels a photo contains and will print out the photo's media url
 
+#IMPORTANT - In the requirements.txt i added the google cloud related libraries
+# however it is recommended to use a independent environment (using venv as source)
+# when using the google cloud libraries so as to not interfere with other projects.
+
 def read_image(consumer_key, consumer_secret, key, secret, userid):
     #twitter API OAuth 2 Authentication
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
