@@ -47,9 +47,9 @@ def read_image(consumer_key, consumer_secret, key, secret, userid):
                     print(label.description)
 
 
-con_key = "4IVCCtuSQ3eLb8i2kH70lVawI"
-con_secret = "7erpsGo0gNJTPnTEYc73PFkB6iCvJZrK8HIb7vVm45ywKfZ04d"
-key = "1222366331825090560-pTDch0qvoCkSvFVdgUoybz8OMQy5c8"
-secret = "7b5LVDnfykKS5Xi5YYH4uiPAZNovzG2HnrpLE2OXV0whZ"
+con_key = 
+con_secret = 
+key = 
+secret = 
 userid = 'Donovan01060515'
 read_image(con_key, con_secret, key, secret, userid)
