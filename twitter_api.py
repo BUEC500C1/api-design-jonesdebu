@@ -37,7 +37,7 @@ def read_image(consumer_key, consumer_secret, key, secret, userid):
     image = vision.types.Image()
 
     #get media urls and print label descriptions
-    for status in tweepy.Cursor(api.user_timeline, id="Donovan01060515").items():
+    for status in tweepy.Cursor(api.user_timeline, id="userid").items():
         if 'media' in status.entities:
             for images in status.entities['media']:
                 image.source.image_uri = images['media_url']
