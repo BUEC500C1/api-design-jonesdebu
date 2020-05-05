@@ -16,6 +16,10 @@ from google.cloud import vision
 # of the user whose timeline you would like to retrieve. The function will print out
 # a lsit of what labels a photo contains and will print out the photo's media url
 
+#IMPORTANT - In the requirements.txt i added the google cloud related libraries
+# however it is recommended to use a independent environment (using venv as source)
+# when using the google cloud libraries so as to not interfere with other projects.
+
 def read_image(consumer_key, consumer_secret, key, secret, userid):
     #twitter API OAuth 2 Authentication
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -33,7 +37,7 @@ def read_image(consumer_key, consumer_secret, key, secret, userid):
     image = vision.types.Image()
 
     #get media urls and print label descriptions
-    for status in tweepy.Cursor(api.user_timeline, id="Donovan01060515").items():
+    for status in tweepy.Cursor(api.user_timeline, id="userid").items():
         if 'media' in status.entities:
             for images in status.entities['media']:
                 image.source.image_uri = images['media_url']
@@ -43,9 +47,9 @@ def read_image(consumer_key, consumer_secret, key, secret, userid):
                     print(label.description)
 
 
-con_key = "4IVCCtuSQ3eLb8i2kH70lVawI"
-con_secret = "7erpsGo0gNJTPnTEYc73PFkB6iCvJZrK8HIb7vVm45ywKfZ04d"
-key = "1222366331825090560-pTDch0qvoCkSvFVdgUoybz8OMQy5c8"
-secret = "7b5LVDnfykKS5Xi5YYH4uiPAZNovzG2HnrpLE2OXV0whZ"
+con_key = 
+con_secret = 
+key = 
+secret = 
 userid = 'Donovan01060515'
 read_image(con_key, con_secret, key, secret, userid)
